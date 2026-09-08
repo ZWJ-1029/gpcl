@@ -26,7 +26,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 The installation script uses the official PyTorch Windows wheel for CUDA 12.8. The program automatically detects CUDA. If CUDA is unavailable, it can fall back to CPU execution; however, graph construction at the scale reported in the paper is not suitable for CPU-only execution.
 
-## Data Split (Strict Reproduction of the Paper)
+## Data Split
 
 * Samples 1–1208: training set;
 * Sample 1209: a complete 60-minute isolation window, fully discarded;
@@ -55,11 +55,7 @@ knn_neighbors = 2048
 
 This mode first uses low-dimensional nearest-neighbor search to generate candidate edges and then applies the original PMI-consistency threshold and Gaussian similarity formulation to those candidate edges without modification. This is an engineering approximation and should not be presented as equivalent to the all-pairs graph construction used in the paper.
 
-The following command can be used to perform a short pipeline check:
 
-```powershell
-.\.venv\Scripts\python.exe .\main.py --quick
-```
 
 ## Outputs
 
